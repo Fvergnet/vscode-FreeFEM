@@ -9,10 +9,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Package VS Code extension
         id: package
-        uses: nhedger/package-vscode-extension@v1
+        run: npm install -g @vscode/vsce && vsce package
       
-      - name: Publish VS Code extension artifact
-        uses: actions/upload-artifact@v4
-        with:
-            name: my-extension
-            path: ${{ steps.package.outputs.packagePath }}
+      # - name: Publish VS Code extension artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #       name: my-extension
+      #       path: ${{ steps.package.outputs.packagePath }}
